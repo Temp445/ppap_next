@@ -1,78 +1,123 @@
-'use client'
+'use client';
 
-import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { Send, User, Mail, Phone, MapPin, MessageSquare } from 'lucide-react';
+import React, { useState, useRef, ChangeEvent, FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
+import {
+  Send,
+  User,
+  Mail,
+  Phone,
+  MapPin,
+  MessageSquare,
+  Building2
+} from 'lucide-react';
+
+
+const service_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const template_ID = process.env.NEXT_PUBLIC_EMAILJS_ENQ_TEMPLATE_ID;
+const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
 interface FormData {
   name: string;
+  company: string;
   email: string;
-  phone: string;
+  number: string;
   location: string;
-  query: string;
+  queries: string;
 }
 
 export default function EnquiryForm() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
+    company: '',
     email: '',
-    phone: '',
+    number: '',
     location: '',
-    query: ''
+    queries: ''
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [emailError, setEmailError] = useState('');
+  const formRef = useRef<HTMLFormElement>(null);
 
-  // Handle input changes with proper typing
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
-  // Example submit handler (you can implement actual submission logic)
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+
+    if (name === 'email') {
+      setEmailError(validateEmail(value) ? '' : 'Please enter a valid email address.');
+    }
+  };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!validateEmail(formData.email)) {
+      setEmailError('Please enter a valid email address.');
+      return;
+    }
+
     setIsSubmitted(true);
 
-    // Simulate async submission and reset form after delay
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        location: '',
-        query: ''
+    emailjs
+      .sendForm(
+        service_ID! ,
+        template_ID!,
+        formRef.current!,
+        publicKey
+      )
+      .then(() => {
+        alert('Thank you! Your enquiry has been submitted successfully.');
+        setFormData({
+          name: '',
+          company: '',
+          email: '',
+          number: '',
+          location: '',
+          queries: ''
+        });
+        setIsSubmitted(false);
+      })
+      .catch(error => {
+        console.error('EmailJS Error:', error);
+        alert('An error occurred while sending your message. Please try again later.');
+        setIsSubmitted(false);
       });
-    }, 3000);
   };
 
   return (
-    <div className="flex items-center justify-center p-4 relative">
-      {/* Floating Elements */}
-      {/* <div className="absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full blur-xl animate-bounce"></div>
-      <div className="absolute bottom-20 right-20 w-24 h-24 bg-blue-400/10 rounded-full blur-xl animate-bounce delay-1000"></div>
-      <div className="absolute top-1/2 left-10 w-16 h-16 bg-pink-400/10 rounded-full blur-xl animate-bounce delay-500"></div> */}
-
+    <div className="flex items-center justify-center p-4 relative z-20">
       <div className="relative w-full max-w-md">
-        {/* Glass Card */}
-        <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl">
-          {/* Header */}
-          <div className="text-center mb-8">
-            {/* <div className="inline-flex items-center justify-center w-16 h-16 bg rounded-full mb-4 shadow-lg">
-              <MessageSquare className="w-8 h-8 text-white" />
-            </div> */}
-            <h2 className="text-3xl font-bold text-white mb-2">Get In Touch</h2>
-            {/* <p className="text-white/70">We'd love to hear from you</p> */}
+        <div className="backdrop-blur-lg bg-white/10 border border-gray-600 rounded-3xl ">
+          <div className="text-center mb-2">
+            <h2 className="text-2xl font-bold text-white mb-2 bg-blue-600  rounded-t-3xl p-4">
+              Book A<span> Demo</span>
+            </h2>
           </div>
+<div className='p-6'>
+     <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+           
+            <div className="flex flex-wrap gap-2 w-full ml-1">
+              <label className="text-base font-medium">Product Interested:</label>
+              <input
+                type="text"
+                name="product"
+                defaultValue="ACE PPAP"
+                readOnly
+                className="font-semibold"
+                aria-label="Product Interested"
+              />
+            </div>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name Field */}
+      
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <User className="w-5 h-5 text-white/50" />
+                <User className="w-5 h-5 text-black" />
               </div>
               <input
                 type="text"
@@ -81,14 +126,29 @@ export default function EnquiryForm() {
                 onChange={handleChange}
                 placeholder="Full Name"
                 required
-                className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent backdrop-blur-sm transition-all duration-300"
+                className="w-full pl-12 pr-4 py-4 bg-white/10 border border-gray-600 rounded text-black placeholder-black"
               />
             </div>
 
-            {/* Email Field */}
+
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Mail className="w-5 h-5 text-white/50" />
+                <Building2 className="w-5 h-5 text-black" />
+              </div>
+              <input
+                type="text"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                placeholder="Company Name"
+                required
+                className="w-full pl-12 pr-4 py-4 bg-white/10 border border-gray-600 rounded text-black placeholder-black"
+              />
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <Mail className="w-5 h-5 text-black" />
               </div>
               <input
                 type="email"
@@ -97,30 +157,34 @@ export default function EnquiryForm() {
                 onChange={handleChange}
                 placeholder="Email Address"
                 required
-                className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent backdrop-blur-sm transition-all duration-300"
+                className={`w-full pl-12 pr-4 py-4 bg-white/10 border ${
+                  emailError ? 'border-gray-800' : 'border-gray-600'
+                } rounded text-black placeholder-black`}
               />
             </div>
+              {emailError && <p className="text-red-500 text-sm  ml-1">{emailError}</p>}
 
-            {/* Phone Field */}
+
+          
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Phone className="w-5 h-5 text-white/50" />
+                <Phone className="w-5 h-5 text-black" />
               </div>
               <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
+                type="number"
+                name="number"
+                value={formData.number}
                 onChange={handleChange}
                 placeholder="Phone Number"
                 required
-                className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent backdrop-blur-sm transition-all duration-300"
+                className="w-full pl-12 pr-4 py-4 bg-white/10 border border-gray-600 rounded text-black placeholder-black"
               />
             </div>
 
-            {/* Location Field */}
+           
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <MapPin className="w-5 h-5 text-white/50" />
+                <MapPin className="w-5 h-5 text-black" />
               </div>
               <input
                 type="text"
@@ -129,36 +193,36 @@ export default function EnquiryForm() {
                 onChange={handleChange}
                 placeholder="Location"
                 required
-                className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent backdrop-blur-sm transition-all duration-300"
+                className="w-full pl-12 pr-4 py-4 bg-white/10 border border-gray-600 rounded text-black placeholder-black"
               />
             </div>
 
-            {/* Query Field */}
+
             <div className="relative">
               <div className="absolute top-4 left-4 pointer-events-none">
-                <MessageSquare className="w-5 h-5 text-white/50" />
+                <MessageSquare className="w-5 h-5 text-black" />
               </div>
               <textarea
-                name="query"
-                value={formData.query}
+               
+                name="queries"
+                value={formData.queries}
                 onChange={handleChange}
                 placeholder="Your Query"
                 rows={4}
-                required
-                className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent backdrop-blur-sm transition-all duration-300 resize-none"
+                className="w-full pl-12 pr-4 py-4 bg-white/10 border border-gray-600 rounded text-black placeholder-black resize-none"
               />
             </div>
 
-            {/* Submit Button */}
+           
             <button
               type="submit"
               disabled={isSubmitted}
-              className="w-full bg-blue-500 text-white font-semibold py-4 px-6 rounded-2xl hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 transform hover:scale-105 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full bg-blue-500 text-white font-semibold py-4 px-6 rounded hover:bg-green-600 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitted ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                  Submitted!
+                  Sending...
                 </>
               ) : (
                 <>
@@ -168,19 +232,9 @@ export default function EnquiryForm() {
               )}
             </button>
           </form>
-
-          {/* Success Message */}
-          {isSubmitted && (
-            <div className="mt-6 p-4 bg-green-500/20 border border-green-400/30 rounded-2xl backdrop-blur-sm">
-              <p className="text-green-300 text-center font-medium">
-                Thank you! Your enquiry has been submitted successfully.
-              </p>
-            </div>
-          )}
+</div>
+       
         </div>
-
-        {/* Bottom Glow */}
-        {/* <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-64 h-16 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-2xl"></div> */}
       </div>
     </div>
   );

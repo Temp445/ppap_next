@@ -6,6 +6,10 @@ import emailjs from "@emailjs/browser";
 import Image from "next/image";
 import icon from "../assets/CF.jpg";
 
+const service_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const template_ID = process.env.NEXT_PUBLIC_EMAILJS_ENQ_TEMPLATE_ID;
+const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
 const Form: React.FC = () => {
   const form = useRef<HTMLFormElement | null>(null);
   const [emailError, setEmailError] = useState<string>("");
@@ -33,10 +37,10 @@ const Form: React.FC = () => {
 
     emailjs
       .sendForm(
-        "service_9bx4oyj", // service ID
-        "template_sjmhod2", // template ID
+         service_ID!, // service ID
+         template_ID!, // template ID
         form.current,
-        "5Y9du8kH2v77YIyKu" // public key
+        publicKey // public key
       )
       .then(
         (response) => {
@@ -151,7 +155,7 @@ const Form: React.FC = () => {
                 <input
                   type="text"
                   name="product"
-                  defaultValue="ACE CMS"
+                  defaultValue="ACE PPAP"
                   readOnly
                   className="lg:text-lg font-semibold"
                   aria-label="Product Interested"

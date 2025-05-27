@@ -2,10 +2,15 @@
 
 import { CheckCircle,MoveRight } from 'lucide-react'
 import Image from 'next/image'
+import icon1 from '../assets/icon-1.png'
+import icon2 from '../assets/icon-2.png'
+import icon3 from '../assets/icon-3.png'
+import icon4 from '../assets/icon-4.png'
 import CMS from '../assets/CMS4.png'
 import CMS1 from '../assets/image5.jpg'
 import arrow from '../assets/arrow1.png'
 import Link from 'next/link'
+import EnquiryForm from './EnquiryForm'
 
 
 const Why_Choose = () => {
@@ -16,72 +21,58 @@ const Why_Choose = () => {
       <div className=" mx-auto px-2 md:px-4">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-0 xl:gap-16 container">
           <div className="w-full md:w-8/12 lg:w-10/12  xl:w-6/12 relative">
-            <div className="relative z-10  xl:bg-none lg:shadow-none p-1 rounded-lg shadow-lg transform  transition-transform duration-300">
-              <div className="mx-auto  relative">
-                     <Image 
-                  src={arrow} 
-                  alt="ACE CMS" 
-                  className="hidden lg:block h-52 w-32 absolute lg:w-28 lg:right-0 xl:right-20 2xl:right-48 top-10  xl:-rotate-12 " 
-                />
-                <Image 
-                  src={CMS1} 
-                  alt="ACE CMS" 
-                  className="hidden lg:block object-cover w-80 h-52 rounded-lg hover:scale-105" 
-                />
-              </div>
-              <div className="mx-auto  relative mt-5">
-                <Image 
-                  src={CMS} 
-                  alt="ACE CMS" 
-                  className="object-cover w-full h-full rounded-lg hover:scale-105" 
-                />
-              </div>
+            <div className='z-20'>
+              <EnquiryForm/>
             </div>
           
             <div className="absolute -top-4 -left-4 w-24 h-24 bg-indigo-100 rounded-full opacity-70 z-0"></div>
           </div>
           
         
-          <div className="w-full xl:w-7/12 space-y-6  border border-gray-200  sm:border-0 pt-5 pb-10 px-2 lg:px-12 xl:px-2 rounded">
-            <div className="inline-block bg-blue-50 text-sky-800 px-4 py-1 rounded-full font-medium">
-              Why Choose Us?
+          <div className="w-full xl:w-11/12 space-y-6  border border-gray-200  sm:border-0 pt-5 pb-10 px-2 lg:px-12 xl:px-2 rounded">
+            <div className="inline-block  text-black text-3xl rounded-full font-bold">
+              Why Choose <span className='text-blue-600'>ACE PPAP</span> ?
             </div>
             
-            <h2 className="text-2xl md:3xl  2xl:text-4xl font-bold text-gray-800 leading-tight">
-               ACE CMS – Smart <span className='text-sky-800 mr-2'>Calibration Management</span> <br className='hidden xl:block' />Made Simple
+            <h2 className="text-2xl md:3xl  2xl:text-2xl font-medium text-gray-700 leading-tight">
+            <strong>ACE PPAP</strong> is an all-in-one PPAP management software that enables manufacturers and suppliers to automate and submit all 18 Production Part Approval Process elements with speed, accuracy, and compliance. 
               <span className="text-blue-600"></span>
             </h2>
+ <h2 className="text-2xl md:3xl  2xl:text-2xl font-medium text-gray-700 leading-tight">
+           Designed for <span className='text-blue-600'>automotive, aerospace, and industrial sectors</span>, it streamlines the full PPAP lifecycle in a centralized, audit-ready platform.
+         
+            </h2>
             
-            <p className=" lg:text-lg text-gray-600">
-              At <strong>ACE CMS</strong>, we don&apos;t just help you manage calibration—we help you master it. 
-              Here&apos;s why leading companies trust us:
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-              {[
-                "Audit-ready, zero stress.",
-                "Calibrate smarter, not harder.",
-                "MSA done in minutes—not hours.",
-                "Scan it. Know it. Done.",
-                "Your calibration, in your pocket.",
-                "100% Cloud-Based, No Data Loss"
-              ].map((item, index) => (
-                <div 
-                  key={index} 
-                  className="flex items-center space-x-3 bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 hover:bg-violet-100 border border-gray-100"
-                >
-                  <CheckCircle className="text-green-500 flex-shrink-0" size={20} />
-                  <span className="font-medium">{item}</span>
-                </div>
-              ))}
-            </div>
-            
-        <div className='w-[130px] md:w-36'>
-              <Link href="#features" className=" text-sm  mt-6 bg-sky-600 text-white font-medium py-2 px-2 gap-3 md:py-2 md:px-3 rounded shadow-md transition-colors duration-300  flex items-center md:gap-5">
-              Learn More
-               <MoveRight size={20}/>
-            </Link>
-        </div>
+        <div className="grid grid-cols-2 grid-rows-2 gap-6 pt-10">
+  <div className="p-6   rounded backdrop-blur-sm  bg-blue-100/80 relative hover:scale-105 shadow-lg hover:shadow-2xl border border-white/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+    <h2 className="text-2xl font-semibold mb-2">100%</h2>
+    <p className="text-gray-600">Secure Document Storage</p>
+   <div className='absolute bottom-0 right-0'><Image src={icon1} alt="icon" className='w-20 h-20 opacity-25 -rotate-6' /></div>
+  </div>
+  <div className="p-6 rounded backdrop-blur-sm  bg-green-100/80 relative hover:scale-105 shadow-lg hover:shadow-2xl border border-white/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+    <h2 className="text-2xl font-semibold mb-2"> 90% </h2>
+    <p className="text-gray-600">Less Manual Paperwork</p>
+   <div className='absolute bottom-0 right-0'><Image src={icon2} alt="icon" className='w-20 h-20 opacity-25 -rotate-6' /></div>
+  </div>
+  <div className="p-6  rounded backdrop-blur-sm  bg-red-100/80 relative hover:scale-105 shadow-lg hover:shadow-2xl border border-white/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+    <h2 className="text-2xl font-semibold mb-2">100%</h2>
+    <p className="text-gray-600">Audit-Ready Compliance</p>
+   <div className='absolute bottom-0 right-0'><Image src={icon3} alt="icon" className='w-20 h-20 opacity-25 -rotate-6' /></div>
+
+  </div>
+  <div className=" p-6   rounded backdrop-blur-sm  bg-violet-100/80 relative hover:scale-105 shadow-lg hover:shadow-2xl border border-white/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden ">
+    <h2 className="text-2xl font-semibold mb-2"> 75% </h2>
+    <p className="text-gray-600"> Faster PPAP Submissions</p>
+   <div className='absolute bottom-0 right-0'><Image src={icon4} alt="icon" className='w-20 h-20 opacity-25 ' /></div>
+  </div>
+  
+</div>
+
+         <div className="w-full border h-20 rounded flex items-center justify-center text-black text-xl font-semibold text-center">
+  Experience the #1 PPAP Software – Book Your Demo Today!
+</div>
+ 
+     
           </div>
         </div>
       </div>
