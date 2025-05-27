@@ -1,15 +1,10 @@
 
-
-import { CheckCircle,MoveRight } from 'lucide-react'
 import Image from 'next/image'
 import icon1 from '../assets/icon-1.png'
 import icon2 from '../assets/icon-2.png'
 import icon3 from '../assets/icon-3.png'
 import icon4 from '../assets/icon-4.png'
-import CMS from '../assets/CMS4.png'
-import CMS1 from '../assets/image5.jpg'
-import arrow from '../assets/arrow1.png'
-import Link from 'next/link'
+
 import EnquiryForm from './EnquiryForm'
 
 
@@ -38,9 +33,8 @@ const Why_Choose = () => {
             <strong>ACE PPAP</strong> is an all-in-one PPAP management software that enables manufacturers and suppliers to automate and submit all 18 Production Part Approval Process elements with speed, accuracy, and compliance. 
               <span className="text-blue-600"></span>
             </h2>
- <h2 className="text-2xl md:3xl  2xl:text-2xl font-medium text-gray-700 leading-tight">
+          <h2 className="text-2xl md:3xl  2xl:text-2xl font-medium text-gray-700 leading-tight">
            Designed for <span className='text-blue-600'>automotive, aerospace, and industrial sectors</span>, it streamlines the full PPAP lifecycle in a centralized, audit-ready platform.
-         
             </h2>
             
         <div className="grid grid-cols-2 grid-rows-2 gap-6 pt-10">

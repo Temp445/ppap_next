@@ -1,6 +1,6 @@
-'use client'
 
-import React from 'react';
+
+
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from './Navbar';
@@ -11,12 +11,6 @@ import img2 from '../assets/PPAP1.jpg';
 import img3 from '../assets/PPAP2.jpg';
 import img4 from '../assets/PPAP5.jpg';
 
-import image from '../assets/Group.svg';
-import image1 from '../assets/Group1.svg';
-import image3 from '../assets/Group3.svg';
-import image5 from '../assets/Group6.png';
-import tool from '../assets/Tools.png';
-import gear from '../assets/Gears.png';
 
 const Hero = () => {
   return (
@@ -24,49 +18,7 @@ const Hero = () => {
       
 {/* <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" /> */}
       <div className="relative min-h-fit container mx-auto">
-        {/* <div className="hidden 2xl:block absolute right-20 top-32">
-          <div className="p-4 bg-white/10 rounded-2xl border border-white/20 backdrop-blur-sm">
-            <Image src={image} alt="icon" className="w-16 h-20 opacity-80 -rotate-12" width={64} height={80} />
-          </div>
-        </div> */}
-        {/* <div className="hidden lg:block absolute right-24 top-60 xl:right-14 xl:top-36 2xl:right-24 2xl:top-60">
-    
-            <Image src={image1} alt="icon" className="w-14 h-18 xl:h-20 xl:w-20" width={56} height={72} />
-        </div> */}
-        {/* <div className="hidden xl:block absolute right-32 top-96">
-          <div className="p-3 bg-white/10 rounded-xl border border-white/20 backdrop-blur-sm ">
-            <Image src={image3} alt="icon" className="w-14 h-12 opacity-75 rotate-45" width={56} height={48} />
-          </div>
-        </div> */}
-        {/* <div className="absolute top-32 left-10 md:left-20 lg:left-32">
-          <div className="w-12 h-12  flex items-center justify-center ">
-            <Image src={image5} alt="icon" className="w-8 h-8  rectangle" width={32} height={32} />
-          </div>
-        </div> */}
-        {/* <div className="absolute bottom-40 right-80 hidden lg:block">
-          <div className="w-8 h-8  border border-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-            <Image src={image5} alt="icon" className="w-4 h-4 opacity-80" width={16} height={16} />
-          </div>
-        </div> */}
-        {/* <div className="absolute bottom-20 left-8 md:left-16 xl:left-96">
-          <div className="w-10 h-10 flex items-center justify-center backdrop-blur-sm">
-            <Image src={image5} alt="icon" className="w-10 h-10 opacity-70" width={12} height={12} />
-          </div>
-        </div> */}
        
-        {/* <div className="hidden lg:block absolute top-32 2xl:top-44 left-[800px]">
-          <div className="w-28 h-px bg-white/30" />
-        </div> */}
-        {/* <div className="absolute top-72 right-16 md:right-24">
-          <div className="w-3 h-3 rounded-full border-2 border-white/40 bg-white/10" />
-        </div> */}
-        {/* <div className="absolute top-96 left-24">
-          <div className="w-2 h-2 rounded-full bg-cyan-400" />
-        </div> */}
-        {/* <div className="absolute bottom-60 right-32 hidden xl:block">
-          <div className="w-2 h-2 rounded-full bg-orange-500" />
-        </div> */}
-
         <div className="relative z-10 max-w- mx-auto px-4 sm:px-6 py-4">
           <nav aria-label="Main navigation">
             <Navbar />
