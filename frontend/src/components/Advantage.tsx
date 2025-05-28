@@ -32,7 +32,7 @@ const Advantage = () => {
         </div>
 
         <div className="md:w-1/2 space-y-6">
-          <h1 className="text-4xl font-extrabold text-gray-800 leading-tight">
+          <h1 className="text-4xl font-extrabold text-gray-600 leading-tight">
             Advantages of <span className="text-blue-600">ACE PPAP</span>
           </h1>
           <ul className="space-y-4">

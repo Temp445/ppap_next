@@ -173,7 +173,7 @@ const Form: React.FC = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-sky-600 text-white py-1 px-3 md:px-4 md:py-2 rounded hover:bg-green-500 flex gap-3 md:text-lg"
+                className="bg-blue-600 text-white py-1 px-3 md:px-4 md:py-2 rounded hover:bg-green-500 flex gap-3 md:text-lg"
               >
                 {loading ? "Sending" : "Send"}
                 <SendHorizontal className="mt-1 w-4 h-4 md:mt-1.5 " />
@@ -181,7 +181,7 @@ const Form: React.FC = () => {
             </form>
           </div>
 
-          <div className="mt-20 md:mt-0 md:w-5/12 bg-sky-700 text-white border border-e-sky-800 border-y-sky-800 border-l-sky-800 md:border-l-0 rounded md:rounded-none md:rounded-r-sm">
+          <div className="mt-20 md:mt-0 md:w-5/12 bg-blue-500 text-white border border-e-sky-800 border-y-sky-800 border-l-sky-800 md:border-l-0 rounded md:rounded-none md:rounded-r-sm">
             <div className="h-48 relative overflow-hidden">
               <div className="absolute inset-0 bg-blue-50 bg-opacity-20 flex flex-col items-center justify-center rounded md:rounded-tr">
                 <Image
@@ -193,10 +193,10 @@ const Form: React.FC = () => {
                 />
 
                 <div className="z-40  text-center ">
-                  <h1 className="z-20 text-black text-shadow-lg font-bold ">
+                  <h1 className="z-20 text-gray-800 text-shadow-lg font-bold ">
                     ACE PPAP
                   </h1>
-                  <h3 className="text-2xl font-bold text-black z-20 text-shadow-lg">
+                  <h3 className="text-2xl font-bold text-gray-800 z-20 text-shadow-lg">
                     Contact Information
                   </h3>
                 </div>

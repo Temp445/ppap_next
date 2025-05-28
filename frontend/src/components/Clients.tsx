@@ -48,11 +48,11 @@ const Clients: React.FC = () => {
 
   return (
     <div className="  md:mt-10  z-0 " id="client">
-        <h1 className="text-center text-2xl md:text-4xl font-bold md:mb-5  text-gray-900">
+        <h1 className="text-center text-2xl md:text-4xl font-bold md:mb-5  text-gray-600">
        <span className="bg-blue-500 px-2 text-white rounded  rotate-12">Clients</span> Who <br />Trust Our Work
       </h1>
 
-      <div className="bg-blue-500">
+      <div className="">
         <div className="py-2 md:py-4 container mx-auto">
         <Marquee
           gradient={false}

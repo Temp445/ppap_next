@@ -163,7 +163,7 @@ const PricingTable: React.FC = () => {
     <div className="w-full max-w-7xl mx-auto px-8 sm:px-6 md:px-4 py-16" id="pricing">
       <div className="text-center mb-10">
         <div className="flex gap-2 justify-center">
-          <h1 className="text-2xl md:text-4xl font-bold text-gray-900">
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-700">
             Subscription Options
           </h1>
         </div>
@@ -184,7 +184,7 @@ const PricingTable: React.FC = () => {
               </div>
             )}
             <div className="p-5 lg:p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">{plan.name}</h2>
               <p className="text-gray-600 mb-4">{plan.desc}</p>
   <div className="text-xl font-semibold mt-2 text-gray-800">
                   ₹{calculatePrice(plan.name, sliderValues[plan.name])}{' '}

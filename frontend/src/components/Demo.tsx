@@ -11,7 +11,7 @@ const Demo = () => {
         <div className="mt-8 flex justify-center">
           <Link
             href="#contact"
-            className="inline-flex items-center gap-2 md:gap-3 text-sm md:text-base font-medium text-blue-500 bg-white py-2 px-4 md:py-3 md:px-6 rounded shadow-md transition-colors duration-300 hover:bg-blue-100"
+            className="inline-flex items-center gap-2 md:gap-3 text-sm md:text-base font-bold text-blue-500 bg-white py-2 px-4 md:py-3 md:px-6 rounded shadow-md transition-colors duration-300 hover:bg-blue-100"
           >
             Book A Demo Now!
             <MoveRight size={20} />
