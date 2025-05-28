@@ -16,7 +16,7 @@ const BackToTop = () => {
   return (
  <div className="container mx-auto w-full">
      <button
-      className={`hidden lg:block  fixed bottom-5 right-5 bg-sky-600 text-white p-3 rounded-full shadow-lg z-50 `}
+      className={`hidden lg:block  fixed bottom-5 right-5 bg-blue-600 text-white p-3 rounded-full shadow-lg z-50 `}
       onClick={scrollToTop}
     >
       <FaArrowUp />
