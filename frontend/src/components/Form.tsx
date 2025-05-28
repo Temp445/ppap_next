@@ -219,7 +219,7 @@ const Form: React.FC = () => {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="bg-blue-500  rounded-full p-3">
+                <div className="bg-indigo-500  rounded-full p-3">
                   <PhoneCall className="w-4 h-4 md:w-5 md:h-5 text-white" />
                 </div>
                 <div>
