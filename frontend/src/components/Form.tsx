@@ -65,7 +65,7 @@ const Form: React.FC = () => {
           <div className="md:w-7/12 rounded md:rounded-none md:rounded-l-sm md:border-sky-800 border p-5 md:p-10">
             <h2 className="text-xl md:text-3xl font-semibold text-gray-800 mb-6">
               Get in touch and{" "}
-              <strong className="text-sky-800">schedule your demo now!</strong>
+              <strong className="text-blue-600">schedule your demo now!</strong>
             </h2>
             <form ref={form} onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -194,7 +194,7 @@ const Form: React.FC = () => {
 
                 <div className="z-40  text-center ">
                   <h1 className="z-20 text-black text-shadow-lg font-bold ">
-                    ACE CMS
+                    ACE PPAP
                   </h1>
                   <h3 className="text-2xl font-bold text-black z-20 text-shadow-lg">
                     Contact Information

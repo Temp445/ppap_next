@@ -62,7 +62,7 @@ const Why_Choose = () => {
   
 </div>
 
-         <div className="w-full border h-20 rounded flex items-center justify-center text-black text-xl font-semibold text-center">
+ <div className="w-full border h-20 rounded flex items-center justify-center text-black text-xl font-semibold text-center">
   Experience the #1 PPAP Software – Book Your Demo Today!
 </div>
  

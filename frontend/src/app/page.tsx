@@ -7,11 +7,11 @@ import Hero from '@/components/Hero'
 import Navbar from '@/components/Navbar'
 import PricingTable from '@/components/PricingTable'
 import Testimonial from '@/components/testimonial'
-import Video from '@/components/Video'
 import Why_Choose from '@/components/Why_Choose'
-import React from 'react'
 import PPAP from '@/components/ppap'
 import Feature from '@/components/Feature'
+import Advantage from '@/components/Advantage'
+import Demo from '@/components/Demo'
 
 const Home = () => {
   return (
@@ -21,10 +21,9 @@ const Home = () => {
     <PPAP/>
     <Why_Choose/>
     <Clients/>
-
-    {/* <Video/>     */}
-
+    <Advantage/>
     <Feature/>
+    <Demo/>
     <PricingTable/>
     <Testimonial/>
     <Form/>

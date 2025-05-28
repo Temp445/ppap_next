@@ -114,7 +114,7 @@ const features = [
 const Feature = () => {
   return (
     <div className="mx-auto px-4 py-10" id='features'>
-          <div className="bg-blue-600 text-white p-8 md:p-10 text-center mb-8 rounded-t-md">
+          <div className="bg-blue-600 text-white p-8 md:p-10 text-center mb-8 2xl:rounded">
             <h1 className="text-4xl md:text-4xl font-bold mb-4">
              Core Features of {' '}
               <span className="bg-white text-blue-600 px-4 py-2 rounded-lg inline-block transform  shadow-lg font-black">

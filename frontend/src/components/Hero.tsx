@@ -1,6 +1,4 @@
 
-
-
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from './Navbar';
@@ -29,11 +27,11 @@ const Hero = () => {
             <span className="text-lg font-bold text-white tracking-wide mt-1">ACE CMS</span>
           </div>
 
-          <section className="flex flex-col lg:flex-row items-center max-w-11/12 mx-auto justify-between min-h-[80vh] 2xl:min-h-fit 2xl:pb-10  gap-12 lg:gap-8 xl:mt-10">
+          <section className="flex flex-col lg:flex-row items-center max-w-11/12 mx-auto justify-between min-h-fit 2xl:pb-10  gap-12 lg:gap-8 xl:mt-10">
             <div className="relative w-full  order-1 lg:order-2">
               <div className="relative  mx-auto lg:mx-0">
                 <div className="absolute -inset-8 rounded-3xl blur-2xl" />
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
 
   <div className="relative bg-white/10 rounded-2xl border border-white/20 p-4 shadow-2xl backdrop-blur-sm">
     <Image
@@ -71,7 +69,7 @@ const Hero = () => {
 </div>
 
 
-<div className="mt-6 grid grid-cols-1 gap-4">
+<div className="mt-6 grid grid-cols-1 gap-4 ">
   <div className="relative h-44 bg-white/10 rounded-2xl border border-white/20 p-2 shadow-2xl backdrop-blur-sm w-full">
     <Image
       src={img4}
@@ -92,7 +90,7 @@ const Hero = () => {
               <div className="max-w-2xl mx-auto lg:mx-0 space-y-8">
                 <div className="space-y-4">
                   <h1 className='md:hidden text-2xl text-black font-bold text-center'>Production Part Approval Process (PPAP) Services for High-Quality, Compliant Manufacturing</h1>
-                  <h1 className=" hidden md:block text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-5xl font-black text-[#000000] leading-tight">
+                  <h1 className=" hidden md:block text-4xl md:text-5xl lg:text-4xl xl:text-4xl 2xl:text-5xl font-black text-[#000000] leading-tight">
                     Production Part Approval Process (PPAP) Services for High-Quality, Compliant Manufacturing<span className='relative text-white'>
                        {/* <div className="absolute -bottom-2 left-0 right-0 h-1 bg-cyan-400 rounded-full" /> */}
                     </span>
