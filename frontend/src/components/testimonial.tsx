@@ -88,7 +88,7 @@ export default function TestimonialCarousel() {
               &quot; {quote} &quot;
             </p>
             <div>
-              <h3 className="text-base md:text-xl font-semibold text-gray-900">{name}</h3>
+              <h3 className="text-base md:text-xl font-semibold text-gray-800">{name}</h3>
              <p className="text-gray-500 text-xs md:text-base flex items-center gap-3 mx-auto justify-center">
     <span className="shrink-0">
       <Image src={logo} alt="Logo" width={80} height={80} className="rounded-md object-contain w-12 h-12 md:w-20 md:h-20" />
